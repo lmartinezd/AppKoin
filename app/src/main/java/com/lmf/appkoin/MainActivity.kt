@@ -16,7 +16,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        mainViewModel.fetchMovie()?.observe(this, Observer {
+        mainViewModel.fetchMovie()
+
+        mainViewModel.title.observe(this, Observer {
             this?.let {
                 tvMessage.text = it.toString()
             }

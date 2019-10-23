@@ -8,6 +8,6 @@ interface MovieApi  {
         const val API_KEY = "93aea0c77bc168d8bbce3918cefefa45"
     }
 
-    @GET( "search/${API_KEY}")
-    fun getListMovies(): Any
+    @GET( "movie/111/${API_KEY}")
+    suspend fun getMovie(): Movie
 }
