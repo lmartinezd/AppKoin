@@ -1,8 +1,9 @@
-package com.lmf.appkoin
+package com.lmf.appkoin.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import com.lmf.appkoin.R
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -15,13 +16,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         mainViewModel.fetchMovie()
 
-        mainViewModel.title.observe(this, Observer {
-            this?.let {
-                tvMessage.text = it.toString()
+        mainViewModel.movie.observe(this, Observer {
+            it?.let {
+                tvMessage.text = it.title
+                tvOverview.text = it.overview
             }
         })
+
     }
 }
